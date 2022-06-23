@@ -61,6 +61,8 @@ Start docker project using docker-compose:
 
 The environment variables (database login credentials, configuration, etc) need to be set in the [.env](.env) file.
 
+Then the Orion Context Broker must be [configured to notify Cygnus](https://github.com/aviharos/oee#notifying-cygnus-of-all-context-changes) of all context changes.
+
 At startup, each object's initial state needs to be uploaded to the Orion context broker. The representation of the manufacturing system, the jobs and the parts, etc. are defined here. The objects must match match the OEE microservice's [requirements](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
 
 Whenever an attribute of an object changes, it must be updated in the Orion Context Broker. This can be done using the Siemens S7-15xx PLC's LHTTP library and HMI.
