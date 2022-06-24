@@ -57,7 +57,7 @@ Prerequisites:
 
 Start docker project using docker-compose:
 
-	docker-compose -f docker-compose.yml --env-file .env -p r4t up -d
+	docker-compose -f docker-compose.yml -p r4t up -d
 
 ## How to use it?
 
@@ -77,6 +77,8 @@ The Grafana dashboards needs to be set up according to the company's specific ne
 The manufacturing processes must be able to translated into a Job-shop scheduling problem.
 
 The ERP system still needs to be modified, the R4T OEE microservice needs to be refactored and thoroughly tested, the R4T Job uploader and the R4T ERP reporter microservice are yet to be written and tested.
+
+The docker-compose file is under construction. It does not contain many microservices, including the R4T IoT agent microservice and the R4T OEE microservice. Currently, these can be added to the same network via `docker run`. The environment variables need to be moved to a separate `.env` file.
 
 ## Improvements Backlog
 
