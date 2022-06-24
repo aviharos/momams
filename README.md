@@ -81,7 +81,7 @@ The ERP system still needs to be modified, the R4T OEE microservice needs to be 
 ## Improvements Backlog
 
 ## License
-No license yet. The Robo4Toys TTE does not hold any copyright of any FIWARE or 3rd party software.
+The license is not determined yet. The Robo4Toys TTE does not hold any copyright of any FIWARE or 3rd party software.
 
 ## Version History
 
