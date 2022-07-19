@@ -25,15 +25,15 @@ services:
       - "5055:5055"
       - "5080:5080" 
     environment:
-      - "CYGNUS_POSTGRESQL_HOST=${CYGNUS_POSTGRESQL_HOST}" # Hostname of the PostgreSQL server used to persist historical context data
+      - "CYGNUS_POSTGRESQL_HOST=postgres-db" # Hostname of the PostgreSQL server used to persist historical context data
       - "CYGNUS_POSTGRESQL_PORT=${CYGNUS_POSTGRESQL_PORT}" # Port that the PostgreSQL server uses to listen to commands
       - "CYGNUS_POSTGRESQL_USER=${CYGNUS_POSTGRESQL_USER}" # Username for the PostgreSQL database user
       - "CYGNUS_POSTGRESQL_PASS=${CYGNUS_POSTGRESQL_PASS}" # Password for the PostgreSQL database user
-      - "CYGNUS_POSTGRESQL_ENABLE_CACHE=${CYGNUS_POSTGRESQL_ENABLE_CACHE}" # Switch to enable caching within the PostgreSQL configuration
-      - "CYGNUS_POSTGRESQL_SERVICE_PORT=${CYGNUS_POSTGRESQL_SERVICE_PORT}" # The port the agent.conf is configured for
-      - "CYGNUS_LOG_LEVEL=${CYGNUS_LOG_LEVEL}" # The logging level for Cygnus
-      - "CYGNUS_SERVICE_PORT=${CYGNUS_SERVICE_PORT}" # Notification Port that Cygnus listens to for Postgres subscriptions
-      - "CYGNUS_API_PORT=${CYGNUS_API_PORT}" # Port that Cygnus listens on for operational reasons
+      - "CYGNUS_POSTGRESQL_ENABLE_CACHE=true" # Switch to enable caching within the PostgreSQL configuration
+      - "CYGNUS_POSTGRESQL_SERVICE_PORT=5055" # The port the agent.conf is configured for
+      - "CYGNUS_LOG_LEVEL=DEBUG" # The logging level for Cygnus
+      - "CYGNUS_SERVICE_PORT=5055" # Notification Port that Cygnus listens to for Postgres subscriptions
+      - "CYGNUS_API_PORT=5080" # Port that Cygnus listens on for operational reasons
 
   # Grafana data visualisation
   grafana:
