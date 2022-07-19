@@ -3,7 +3,7 @@ services:
 
   # Orion is the context broker
   orion:
-    image: fiware/orion
+    image: fiware/orion:3.5.1
     hostname: orion
     container_name: fiware-orion
     depends_on:
@@ -14,7 +14,7 @@ services:
 
   # Cygnus is configured to write context data to PostgeSQL
   cygnus:
-    image: fiware/cygnus-ngsi
+    image: fiware/cygnus-ngsi:latest
     hostname: cygnus
     container_name: fiware-cygnus
     networks:
@@ -57,7 +57,7 @@ services:
       - mongo-db:/data
 
   postgres-db:
-    image: postgres
+    image: postgres:latest
     hostname: postgres-db
     container_name: db-postgres
     ports:
