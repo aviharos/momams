@@ -74,7 +74,7 @@ services:
     image: atmoz/sftp
     ports:
       - "2222:22"
-    command: r4t:${SFTP_PASSWORD}:::share
+    command: ${SFTP_USER}:${SFTP_PASSWORD}:::share
 
 
 volumes:
