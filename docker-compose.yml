@@ -26,7 +26,7 @@ services:
       - "5080:5080" 
     environment:
       - "CYGNUS_POSTGRESQL_HOST=postgres-db" # Hostname of the PostgreSQL server used to persist historical context data
-      - "CYGNUS_POSTGRESQL_PORT=${CYGNUS_POSTGRESQL_PORT}" # Port that the PostgreSQL server uses to listen to commands
+      - "CYGNUS_POSTGRESQL_PORT=5432" # Port that the PostgreSQL server uses to listen to commands
       - "CYGNUS_POSTGRESQL_USER=${CYGNUS_POSTGRESQL_USER}" # Username for the PostgreSQL database user
       - "CYGNUS_POSTGRESQL_PASS=${CYGNUS_POSTGRESQL_PASS}" # Password for the PostgreSQL database user
       - "CYGNUS_POSTGRESQL_ENABLE_CACHE=true" # Switch to enable caching within the PostgreSQL configuration
