@@ -3,7 +3,7 @@ services:
 
   # Orion is the context broker
   orion:
-    image: fiware/orion:3.5.1
+    image: fiware/orion:3.6.0
     hostname: orion
     container_name: fiware-orion
     depends_on:
@@ -14,7 +14,7 @@ services:
 
   # Cygnus is configured to write context data to PostgeSQL
   cygnus:
-    image: fiware/cygnus-ngsi:latest
+    image: fiware/cygnus-ngsi:2.16.0
     hostname: cygnus
     container_name: fiware-cygnus
     networks:
@@ -47,17 +47,17 @@ services:
 
   # Databases - Orion uses Mongo-DB, Cygnus is persisting to Postgres
   mongo-db:
-    image: mongo:3.6
+    image: mongo:5.0.9
     hostname: mongo-db
     container_name: db-mongo
     ports:
       - "27017:27017" 
-    command: --bind_ip_all --smallfiles
+    # command: --bind_ip_all --smallfiles
     volumes:
       - mongo-db:/data
 
   postgres-db:
-    image: postgres:latest
+    image: postgres:14.4
     hostname: postgres-db
     container_name: db-postgres
     ports:
@@ -68,6 +68,14 @@ services:
       - "POSTGRES_DB=postgres"
     volumes:
       - postgres-db:/var/lib/postgresql/data
+
+  # Containers specific to Robo4Toys
+  sftp:
+    image: atmoz/sftp
+    ports:
+      - "2222:22"
+    command: r4t:${SFTP_PASSWORD}:::share
+
 
 volumes:
   mongo-db:
