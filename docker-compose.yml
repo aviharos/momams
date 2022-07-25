@@ -71,13 +71,39 @@ services:
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
+  # Robo4Toys ROSE-AP 1
+  # OEE calculator microservice
+  #oee:
+  #  image: oee
+  #  hostname: oee
+  #  container_name: r4t-oee
+
+  # Robo4Toys ROSE-AP 2
+  # Iotagent-PLC: an IoT agent that is an adapter between
+  # the IoT device and the Orion context broker
+  iotagent-plc:
+    image: iotagent-plc
+    hostname: iotagent-plc
+    container_name: r4t-iotagent-plc
+    ports:
+      - "4315:4315"
+
   # Containers specific to Robo4Toys
+  # Feel free to delete them, they are not part of MOMAMS
+
+  # SFTP server to be used by the ERP and the Job reporter
   sftp:
     image: atmoz/sftp
     ports:
       - "2222:22"
     command: ${SFTP_USER}:${SFTP_PASSWORD}:::share
 
+  # ERP reporter microservice:
+  # Uploads an XML to the sftp container whenever a Job is finished
+  #erp-reporter:
+  #  image: erp-reporter
+  #  hostname: erp-reporter
+  #  container_name: r4t-erp-reporter
 
 volumes:
   mongo-db:
