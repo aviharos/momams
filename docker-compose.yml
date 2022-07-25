@@ -27,8 +27,9 @@ services:
     environment:
       - "CYGNUS_POSTGRESQL_HOST=postgres-db" # Hostname of the PostgreSQL server used to persist historical context data
       - "CYGNUS_POSTGRESQL_PORT=5432" # Port that the PostgreSQL server uses to listen to commands
-      - "CYGNUS_POSTGRESQL_USER=${CYGNUS_POSTGRESQL_USER}" # Username for the PostgreSQL database user
-      - "CYGNUS_POSTGRESQL_PASS=${CYGNUS_POSTGRESQL_PASS}" # Password for the PostgreSQL database user
+      - "CYGNUS_POSTGRESQL_USER=${POSTGRES_USER}" # Username for the PostgreSQL database user
+      - "CYGNUS_POSTGRESQL_PASS=${POSTGRES_PASSWORD}" # Password for the PostgreSQL database user
+      - "CYGNUS_POSTGRESQL_DATABASE=${POSTGRES_DATABASE}" # PostgreSQL database
       - "CYGNUS_POSTGRESQL_ENABLE_CACHE=true" # Switch to enable caching within the PostgreSQL configuration
       - "CYGNUS_POSTGRESQL_SERVICE_PORT=5055" # The port the agent.conf is configured for
       - "CYGNUS_LOG_LEVEL=DEBUG" # The logging level for Cygnus
@@ -47,7 +48,8 @@ services:
 
   # Databases - Orion uses Mongo-DB, Cygnus is persisting to Postgres
   mongo-db:
-    image: mongo:5.0.9
+    # mongo 5.0.9 works fine too, but not on all operating systems
+    image: mongo:4.4.15
     hostname: mongo-db
     container_name: db-mongo
     ports:
@@ -65,7 +67,7 @@ services:
     environment:
       - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
       - "POSTGRES_USER=${POSTGRES_USER}"
-      - "POSTGRES_DB=postgres"
+      - "POSTGRES_DB=${POSTGRES_DATABASE}"
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
