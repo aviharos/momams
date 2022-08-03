@@ -84,7 +84,10 @@ The docker-compose file is under construction. It does not contain many microser
 ## Improvements Backlog
 
 ## License
-The license is not determined yet. The Robo4Toys TTE does not hold any copyright of any FIWARE or 3rd party software.
+
+[MIT license](LICENSE)
+
+The Robo4Toys TTE does not hold any copyright of any FIWARE or 3rd party software.
 
 ## Version History
 
