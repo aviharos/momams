@@ -1,8 +1,9 @@
-# Manufacturing_OEE_alert_management_system (MOAMS)
+# Manufacturing OEE and MES Alert Management System (MOMAMS)
+[![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
 
 ## Purpose
 
-MOAMS provides a system for
+MOMAMS provides a system for
 - logging manufacturing systems,
 - calculating OEE values,
 - OEE visualisation and
@@ -18,20 +19,20 @@ The system is capable of handling manufacturing systems that
 
 ## Architecture and modules
 The overall architecture is shown below: 
-![MOAMS architecture and modules](img/R4T.drawio.png)
+![MOMAMS architecture and modules](img/R4T.drawio.png)
 
 The software components can be separated into 3 groups: 
 - [Fiware](https://github.com/Fiware/tutorials.Getting-Started) software components,
 - 3rd party software,
 - Custom TTE software.
 
-The [R4T OEE microservice](https://github.com/aviharos/oee) and the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-plc) are microsercices that can be used integrated into the MOAMS system or without integration.
+The [R4T OEE microservice](https://github.com/aviharos/oee) and the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-http) are microsercices that can be used integrated into the MOMAMS system or without integration.
 
 The software components run in [docker](https://www.docker.com/) containers in a project as follows.
 
 The [Orion Context Broker](https://fiware-orion.readthedocs.io/en/master/) handles the current data in a [MongoDB](https://www.mongodb.com/) database.
 
-Even though the software solution is designed to handle multiple Workstations, the Robo4Toys TTE needed to supervise one. A Siemens S7-15xx PLC controls the manufacturing cell that is treated as a unit. The PLC sends updates to the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-plc) that acts as an adapter between the PLC and the Orion Context Broker. Since in TIA Portal v16 one cannot define strings over 254 characters in length, the data packets need to be small. Our suggestion is that the objects are created some other way, and the PLC data packets cover only the changes in the objects. This is how the Orion Context Broker knows about the changes in the objects' attributes. If the command that we need to send to the PLC can be done using HTTP GET, POST and PUT, the R4T IoT agent is not needed. If the PLC sends HTTP DELETE requests, the IoT agent is needed. The Orion broker accepts HTTP PATCH commands, that are not yet implemented in the R4T IoT agent.
+Even though the software solution is designed to handle multiple Workstations, the Robo4Toys TTE needed to supervise one. A Siemens S7-15xx PLC controls the manufacturing cell that is treated as a unit. The PLC sends updates to the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-http) that acts as an adapter between the PLC and the Orion Context Broker. Since in TIA Portal v16 one cannot define strings over 254 characters in length, the data packets need to be small. Our suggestion is that the objects are created some other way, and the PLC data packets cover only the changes in the objects. This is how the Orion Context Broker knows about the changes in the objects' attributes. If the command that we need to send to the PLC can be done using HTTP GET, POST and PUT, the R4T IoT agent is not needed. If the PLC sends HTTP DELETE requests, the IoT agent is needed. The Orion broker accepts HTTP PATCH commands, that are not yet implemented in the R4T IoT agent.
 
 The Orion Context Broker notifies [Fiware Cygnus](https://github.com/FIWARE/tutorials.Historic-Context-Flume) whenever a component changes. Cygnus stores all historical data into a [PostgreSQL](https://www.postgresql.org/) historic database. The user needs to configure this notification when the docker project is started.
 
@@ -52,7 +53,7 @@ The manufacturing processes, the Workstation, the shifts are all configured in J
 Prerequisites:
  - Deployment requires [Docker Compose](https://docs.docker.com/compose/install/) v3.5 or above.
  - The OEE app needs to be [built](https://github.com/aviharos/oee#build) with docker
- - The IoT agent must be [built](https://github.com/aviharos/iotagent-plc#build) with docker
+ - The IoT agent must be [built](https://github.com/aviharos/iotagent-http#build) with docker
  - During initial installation, internet access is required in order to download additional docker images according to [docker-compose.yml](docker-compose.yml)
 
 Start docker project using docker-compose:
