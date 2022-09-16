@@ -1,0 +1,6 @@
+{
+	"type": "Alert",
+	"id": "urn:ngsi_ld:Alert:TrayUnloaderStorage1",
+	"RefObject": {"type": "Relationship", "value": "urn:ngsi_ld:Storage:TrayUnloaderStorage1"},
+	"Message": {"type": "Text", "value": null}
+}

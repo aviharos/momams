@@ -1,0 +1,16 @@
+{
+	"type": "Part",
+	"id": "urn:ngsi_ld:Part:Cover001",
+	"Operations": {
+		"type": "List",
+		"value": [
+			{
+				"type": "Operation",
+				"OperationNumber": {"type": "Number", "value": 10},
+				"OperationType": {"type": "Text", "value": "Cover001_injection_moulding"},
+				"CycleTime": {"type": "Number", "value": 46},
+				"PartsPerCycle": {"type": "Number", "value": 8}
+			}
+		]
+	}
+}

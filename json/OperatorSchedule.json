@@ -1,0 +1,6 @@
+{
+	"type": "OperatorSchedule",
+	"id": "urn:ngsi_ld:OperatorSchedule:1",
+	"OperatorWorkingScheduleStartsAt": {"type": "Time", "value": "8:00:00"},
+	"OperatorWorkingScheduleStopsAt": {"type": "Time", "value": "16:00:00"}
+}

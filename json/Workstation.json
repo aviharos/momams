@@ -1,0 +1,10 @@
+{
+	"type": "Workstation",
+	"id": "urn:ngsi_ld:Workstation:1",
+	"Available": {"type": "Boolean", "value": true},
+	"RefJob": {"type": "Relationship", "value": "urn:ngsi_ld:Job:202200045"},
+	"RefOEE": {"type": "Relationship", "value": "urn:ngsi_ld:OEE:1"},
+	"RefThroughput": {"type": "Relationship", "value": "urn:ngsi_ld:Throughput:1"},
+	"RefOperatorSchedule": {"type": "Relationship", "value": "urn:ngsi_ld:OperatorSchedule:1"},
+	"RefAlert": {"type": "Relationship", "value": "urn:ngsi_ld:Alert:Workstation1"}
+}
