@@ -1,6 +1,0 @@
-{
-	"type": "Alert",
-	"id": "urn:ngsi_ld:Alert:Workstation1",
-	"RefObject": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:1"},
-	"Message": {"type": "Text", "value": null}
-}
