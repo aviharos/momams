@@ -32,11 +32,11 @@ The software components run in [docker](https://www.docker.com/) containers in a
 
 The [Orion Context Broker](https://fiware-orion.readthedocs.io/en/master/) handles the current data in a [MongoDB](https://www.mongodb.com/) database.
 
-Even though the software solution is designed to handle multiple Workstations, the Robo4Toys TTE needed to supervise one. A Siemens S7-15xx PLC controls the manufacturing cell that is treated as a unit. The PLC sends updates to the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-http) that acts as an adapter between the PLC and the Orion Context Broker. Since in TIA Portal v16 one cannot define strings over 254 characters in length, the data packets need to be small. Our suggestion is that the objects are created some other way, and the PLC data packets cover only the changes in the objects. This is how the Orion Context Broker knows about the changes in the objects' attributes. If the command that we need to send to the PLC can be done using HTTP GET, POST and PUT, the R4T IoT agent is not needed. If the PLC sends HTTP DELETE requests, the IoT agent is needed. The Orion broker accepts HTTP PATCH commands, that are not yet implemented in the R4T IoT agent.
+Even though the software solution is designed to handle multiple Workstations, the Robo4Toys TTE needed to supervise one. A Siemens S7-15xx PLC controls the manufacturing cell that is treated as a unit. The PLC sends updates to the [R4T IoT agent for Siemens S7-15xx PLCs](https://github.com/aviharos/iotagent-http) that acts as an adapter between the PLC and the Orion Context Broker. In TIA Portal v16 one cannot define strings over 254 characters in length. The array of chars does not have this limitation. Our suggestion is that the objects are created some other way, and the PLC data packets cover only the changes in the objects. This is how the Orion Context Broker knows about the changes in the objects' attributes. The Siemens LHTTP library does not support `'Content-Type: application/json'`, but the IoT agent can be used to translate between `'Content-Type: text/plain'` and `'Content-Type: application/json'` HTTP requests, thus enabling the PLC to send a wide variety of HTTP requests.
 
 The Orion Context Broker notifies [Fiware Cygnus](https://github.com/FIWARE/tutorials.Historic-Context-Flume) whenever a component changes. Cygnus stores all historical data into a [PostgreSQL](https://www.postgresql.org/) historic database. The user needs to configure this notification when the docker project is started.
 
-The [R4T OEE microservice](https://github.com/aviharos/oee) periodically calculates the OEE data and the throughput of each Workstation object and uploads it to a separate time-series OEE table in PostgreSQL. There is one table for each Workstation.
+The [R4T OEE microservice](https://github.com/aviharos/oee) periodically calculates the OEE data and the throughput of each Workstation object and constantly updates them as separate Orion objects. There is one OEE and throughput object for each Workstation. Since Cygnus logs the changes in the OEE and Throughput objects too, there will be one PostgreSQL table for the OEE and Throughput objects for each Workstation.
 
 [Grafana](https://grafana.com/) is connected to the PostgreSQL. It is configured with custom dashboards. Operators and managers can be configured to have different privileges and different dashboards. Grafana is also configured to check certain values, and if they exceed or fall below a certain threshold, Grafana sends an alert to the operator about a task through [Discord](https://discord.com/). The Grafana configuration is covered in-depth in the official tutorials. We still need to find a solution for displaying the alert on the dashboard. 
 
@@ -46,7 +46,21 @@ Since the PLC will only modify object in the Orion context broker, the objects n
 
 ## How to adapt it?
 
-The manufacturing processes, the Workstation, the shifts are all configured in JSON objects that need to be sent to the Orion context broker with cURL, Postman or another similar tool. The design of these objects must match the OEE [microservice's specifications](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
+The manufacturing processes, the Workstation, the shifts are all configured in JSON objects that need to be sent to the Orion context broker with cURL, Postman or another similar tool. You need to follow the OEE microservice's data model is described in the OEE microservice's README: [Usage](https://github.com/aviharos/oee#usage). MOMAMS extends this data model with the following:
+
+- Workstations:
+    - add one alert attribute for each Workstation
+- Storages:
+    - add storage objects with counters
+- Jobs:
+    - add the following attributes to each Workstation:
+        - RefWorkstation: refers to the Workstation of the Job's current operation
+        - JobStartDate: start date of job 
+        - JobEndDate: end date of job 
+        - JobDueDate: due date of job 
+        - Finished: boolean indicating if the Job is finished or not
+
+See the [json](json) folder for an example setup.
 
 ## How to deploy it?
 
@@ -56,19 +70,19 @@ Prerequisites:
  - The IoT agent must be [built](https://github.com/aviharos/iotagent-http#build) with docker
  - During initial installation, internet access is required in order to download additional docker images according to [docker-compose.yml](docker-compose.yml)
 
+The environment variables (database login credentials, configuration, etc) need to be set in the [.env](.env) file.
+
 Start docker project using docker-compose:
 
-	docker-compose -f docker-compose.yml -p r4t up -d
+	docker-compose -f docker-compose.yml -p momams up -d
 
 ## How to use it?
 
-The environment variables (database login credentials, configuration, etc) need to be set in the [.env](.env) file.
-
 Then the Orion Context Broker must be [configured to notify Cygnus](https://github.com/aviharos/oee#notifying-cygnus-of-all-context-changes) of all context changes.
 
-At startup, each object's initial state needs to be uploaded to the Orion context broker. The representation of the manufacturing system, the jobs and the parts, etc. are defined here. The objects must match match the OEE microservice's [requirements](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
+At startup, each object's initial state needs to be uploaded to the Orion context broker except for the OEE and Throughput objects. The representation of the manufacturing system, the jobs and the parts, etc. are defined here. The objects must match match the OEE microservice's [requirements](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
 
-Whenever an attribute of an object changes, it must be updated in the Orion Context Broker. This can be done using the Siemens S7-15xx PLC's LHTTP library and HMI.
+Whenever an attribute of any object (except the OEE and Throughput objects) changes, you must update it in the Orion Context Broker. This can be done using the Siemens S7-15xx PLC's LHTTP library and HMI and the PLC.
 
 The Grafana dashboards needs to be set up according to the company's specific needs. Grafana uses PostgreSQL historic data.
 
@@ -77,9 +91,7 @@ The Grafana dashboards needs to be set up according to the company's specific ne
 ## Known Limitations
 The manufacturing processes must be able to translated into a Job-shop scheduling problem.
 
-The ERP system still needs to be modified, the R4T OEE microservice needs to be refactored and thoroughly tested, the R4T Job uploader and the R4T ERP reporter microservice are yet to be written and tested.
-
-The docker-compose file is under construction. It does not contain many microservices, including the R4T IoT agent microservice and the R4T OEE microservice. Currently, these can be added to the same network via `docker run`. The environment variables need to be moved to a separate `.env` file.
+The docker-compose file is under construction. It does not contain many microservices, including the R4T IoT agent microservice and the R4T OEE microservice. Currently, these can be added to the same network via `docker run`.
 
 ## Improvements Backlog
 
