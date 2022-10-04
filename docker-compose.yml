@@ -70,48 +70,6 @@ services:
       - "POSTGRES_DB=${POSTGRES_DATABASE}"
     volumes:
       - postgres-db:/var/lib/postgresql/data
-    perseo-mongo:
-        image: mongo:4.2
-        volumes:
-            - ./mongodata:/data/db
-        networks:
-            - perseo
-        deploy:
-            replicas: 1
-            restart_policy:
-                condition: on-failure
-    perseo-core:
-        image: fiware/perseo-core:1.13.0
-        environment:
-            - PERSEO_FE_URL=http://perseo-fe:9090
-            - MAX_AGE=6000
-        networks:
-            - perseo
-        depends_on:
-            - perseo-mongo
-        deploy:
-            replicas: 1
-            restart_policy:
-                condition: on-failure
-    perseo-fe:
-        image: fiware/perseo:1.24.0
-        networks:
-            perseo:
-            main:
-        ports:
-            - 9090:9090
-        depends_on:
-            - perseo-core
-        environment:
-            - PERSEO_MONGO_ENDPOINT=perseo-mongo
-            - PERSEO_CORE_URL=http://perseo-core:8080
-            - PERSEO_LOG_LEVEL=debug
-            - PERSEO_ORION_URL=http://orion:1026/
-        deploy:
-            replicas: 1
-            restart_policy:
-                condition: on-failure
-
 
   # Robo4Toys ROSE-AP 1
   # OEE calculator microservice
@@ -147,6 +105,52 @@ services:
   #  hostname: erp-reporter
   #  container_name: r4t-erp-reporter
 
+  perseo-mongo:
+        image: mongo:4.2
+        volumes:
+            - ./mongodata:/data/db
+        networks:
+            - perseo
+        deploy:
+            replicas: 1
+            restart_policy:
+                condition: on-failure
+  perseo-core:
+        image: fiware/perseo-core:1.13.0
+        environment:
+            - PERSEO_FE_URL=http://perseo-fe:9090
+            - MAX_AGE=6000
+        networks:
+            - perseo
+        depends_on:
+            - perseo-mongo
+        deploy:
+            replicas: 1
+            restart_policy:
+                condition: on-failure
+  perseo-fe:
+        image: fiware/perseo:1.24.0
+        networks:
+            perseo:
+            main:
+        ports:
+            - 9090:9090
+        depends_on:
+            - perseo-core
+        environment:
+            - PERSEO_MONGO_ENDPOINT=perseo-mongo
+            - PERSEO_CORE_URL=http://perseo-core:8080
+            - PERSEO_LOG_LEVEL=debug
+            - PERSEO_ORION_URL=http://orion:1026/
+        deploy:
+            replicas: 1
+            restart_policy:
+                condition: on-failure
+
+networks:
+    perseo:
+    main:
+
 volumes:
   mongo-db:
     driver: local
@@ -154,7 +158,3 @@ volumes:
     driver: local
   grafana-storage:
     driver: local
-    
-networks:
-    perseo:
-    main:
