@@ -110,8 +110,10 @@ services:
       LOG_TO_FILE: "false"
       LOG_TO_STDOUT: "true"
       LOGGING_LEVEL: "DEBUG"
+      ORION_HOST: "orion"
+      ORION_PORT: 1026
       PORT: 4315
-      USE_PLUGIN: "false"
+      USE_PLUGIN: "true"
 
 
   # SFTP server to be used by the ERP and the Job reporter
