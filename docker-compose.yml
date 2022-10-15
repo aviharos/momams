@@ -72,26 +72,51 @@ services:
       - postgres-db:/var/lib/postgresql/data
 
   # Robo4Toys ROSE-AP 1
-  # OEE calculator microservice
-  #oee:
-  #  image: oee
-  #  hostname: oee
-  #  container_name: r4t-oee
+  oee:
+   image: oee:latest
+   hostname: oee
+   container_name: r4t-oee
+   restart: always
+   networks:
+     - default
+   depends_on:
+     - orion
+     - postgres-db
+   environment:
+     LOG_TO_FILE: "false"
+     LOG_TO_STDOUT: "true"
+     LOGGING_LEVEL: "DEBUG"
+     ORION_HOST: "orion"
+     ORION_PORT: 1026
+     SLEEP_TIME: 60
+     POSTGRES_DATABASE: "${POSTGRES_DATABASE}"
+     POSTGRES_HOST: "postgres-db"
+     POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+     POSTGRES_PORT: 5432
+     POSTGRES_SCHEMA: "default_service"
+     POSTGRES_USER: "${POSTGRES_USER}"
 
   # Robo4Toys ROSE-AP 2
-  # iotagent-http: an IoT agent that is an adapter between
-  # the IoT device and the Orion context broker
-  # iotagent-http:
-  #   image: iotagent-http:latest
-  #   hostname: iotagent-http
-  #   container_name: r4t-iotagent-http
-  #   ports:
-  #     - "4315:4315"
+  iotagent-http:
+    image: iotagent-http:latest
+    hostname: iotagent-http
+    container_name: r4t-iotagent-http
+    restart: always
+    depends_on:
+      - orion
+    ports:
+      - "4315:4315"
+    environment:
+      LOG_TO_FILE: "false"
+      LOG_TO_STDOUT: "true"
+      LOGGING_LEVEL: "DEBUG"
+      PORT: 4315
+      USE_PLUGIN: "false"
 
-  # Containers specific to Robo4Toys
-  # Feel free to delete them, they are not part of MOMAMS
 
   # SFTP server to be used by the ERP and the Job reporter
+  # Container specific to Robo4Toys
+  # Feel free to delete it
   sftp:
     image: atmoz/sftp
     ports:
