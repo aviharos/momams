@@ -1,0 +1,16 @@
+{
+	"type": "Part",
+	"id": "urn:ngsi_ld:Part:AssembledCube001",
+	"Operations": {
+		"type": "List",
+		"value": [
+			{
+				"type": "Operation",
+				"OperationNumber": {"type": "Number", "value": 10},
+				"OperationType": {"type": "Text", "value": "AssembledCube001_assembly"},
+				"CycleTime": {"type": "Number", "value": 60},
+				"PartsPerCycle": {"type": "Number", "value": 1}
+			}
+		]
+	}
+}

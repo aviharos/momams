@@ -1,7 +1,7 @@
 {
 	"type": "Storage",
-	"id": "urn:ngsi_ld:Storage:TrayUnloaderStorage1",
-	"Capacity": {"type": "Number", "value": 100},
+	"id": "urn:ngsi_ld:Storage:TrayUnloaderStorage2",
+	"Capacity": {"type": "Number", "value": 10},
 	"Counter": {"type": "Number", "value": 0},
 	"Alert": {"type": "Text", "value": null}
 }

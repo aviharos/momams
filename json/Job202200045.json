@@ -2,7 +2,7 @@
 	"type": "Job",
 	"id": "urn:ngsi_ld:Job:202200045",
 	"RefPart": {"type": "Relationship", "value": "urn:ngsi_ld:Part:Core001"},
-	"RefWorkstation": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:1"},
+	"RefWorkstation": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:InjectionMoulding1"},
 	"JobNumber": {"type": "Number", "value": 202200045},
 	"CurrentOperationType": {"type": "Text", "value": "Core001_injection_moulding"},
 	"JobTargetNumber": {"type": "Number", "value": 8000},

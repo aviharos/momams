@@ -1,7 +1,7 @@
 {
 	"type": "OEE",
-	"id": "urn:ngsi_ld:OEE:1",
-	"RefWorkstation": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:1"},
+	"id": "urn:ngsi_ld:OEE:InjectoinMoulding1",
+	"RefWorkstation": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:InjectoinMoulding1"},
 	"RefJob": {"type": "Relationship", "value": "urn:ngsi_ld:Job:202200045"},
 	"Availability": {"type": "Number", "value": 0.9},
 	"Performance": {"type": "Number", "value": 0.9},

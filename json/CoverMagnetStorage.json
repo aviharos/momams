@@ -1,7 +1,0 @@
-{
-	"type": "Storage",
-	"id": "urn:ngsi_ld:Storage:CoverMagnetStorage1",
-	"Capacity": {"type": "Number", "value": 300},
-	"Counter": {"type": "Number", "value": 300},
-	"Alert": {"type": "Text", "value": null}
-}

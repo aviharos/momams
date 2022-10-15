@@ -4,7 +4,7 @@
 	"Available": {"type": "Boolean", "value": true},
 	"Alert": {"type": "Text", "value": null},
 	"RefJob": {"type": "Relationship", "value": "urn:ngsi_ld:Job:202200045"},
-	"RefOEE": {"type": "Relationship", "value": "urn:ngsi_ld:OEE:1"},
-	"RefThroughput": {"type": "Relationship", "value": "urn:ngsi_ld:Throughput:1"},
+	"RefOEE": {"type": "Relationship", "value": "urn:ngsi_ld:OEE:InjectionMoulding1"},
+	"RefThroughput": {"type": "Relationship", "value": "urn:ngsi_ld:Throughput:InjectionMoulding1"},
 	"RefOperatorSchedule": {"type": "Relationship", "value": "urn:ngsi_ld:OperatorSchedule:1"},
 }
