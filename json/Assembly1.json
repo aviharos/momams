@@ -6,5 +6,5 @@
 	"RefJob": {"type": "Relationship", "value": "urn:ngsi_ld:Job:202200000"},
 	"RefOEE": {"type": "Relationship", "value": "urn:ngsi_ld:OEE:Assembly1"},
 	"RefThroughput": {"type": "Relationship", "value": "urn:ngsi_ld:Throughput:Assembly1"},
-	"RefOperatorSchedule": {"type": "Relationship", "value": "urn:ngsi_ld:OperatorSchedule:1"},
+	"RefOperatorSchedule": {"type": "Relationship", "value": "urn:ngsi_ld:OperatorSchedule:1"}
 }
