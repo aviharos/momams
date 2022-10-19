@@ -3,5 +3,5 @@
 	"id": "urn:ngsi_ld:Throughput:Assembly1",
 	"RefWorkstation": {"type": "Relationship", "value": "urn:ngsi_ld:Workstation:Assembly1"},
 	"RefJob": {"type": "Relationship", "value": "urn:ngsi_ld:Job:202200000"},
-	"ThroughputPerShift": {"type": "Number", "value": 4100}
+	"ThroughputPerShift": {"type": "Number", "value": null}
 }
