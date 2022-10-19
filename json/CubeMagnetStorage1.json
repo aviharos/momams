@@ -1,7 +1,7 @@
 {
 	"type": "Storage",
 	"id": "urn:ngsi_ld:Storage:CubeMagnetStorage1",
-	"Capacity": {"type": "Number", "value": 296},
-	"Counter": {"type": "Number", "value": 296},
+	"Capacity": {"type": "Number", "value": 288},
+	"Counter": {"type": "Number", "value": 288},
 	"Alert": {"type": "Text", "value": null}
 }
