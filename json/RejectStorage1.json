@@ -1,7 +1,9 @@
 {
 	"type": "Storage",
 	"id": "urn:ngsi_ld:Storage:RejectStorage1",
-	"Capacity": {"type": "Number", "value": 288},
+	"Capacity": {"type": "Number", "value": 1000},
 	"Counter": {"type": "Number", "value": 0},
-	"Alert": {"type": "Text", "value": null}
+	"Alert": {"type": "Text", "value": null},
+	"SubType": {"type": "Text", "value": "emptying"},
+    "Step": {"type": "Number", "value": 8}
 }
