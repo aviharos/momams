@@ -76,7 +76,7 @@ services:
    image: oee:latest
    hostname: oee
    container_name: r4t-oee
-   restart: always
+   restart: unless-stopped
    networks:
      - default
    depends_on:
@@ -101,7 +101,7 @@ services:
     image: iotagent-http:latest
     hostname: iotagent-http
     container_name: r4t-iotagent-http
-    restart: always
+    restart: unless-stopped
     depends_on:
       - orion
     ports:
@@ -119,11 +119,11 @@ services:
   # SFTP server to be used by the ERP and the Job reporter
   # Container specific to Robo4Toys
   # Feel free to delete it
-  sftp:
-    image: atmoz/sftp
-    ports:
-      - "2222:22"
-    command: ${SFTP_USER}:${SFTP_PASSWORD}:::share
+  # sftp:
+  #   image: atmoz/sftp
+  #   ports:
+  #     - "2222:22"
+  #   command: ${SFTP_USER}:${SFTP_PASSWORD}:::share
 
   # ERP reporter microservice:
   # Uploads an XML to the sftp container whenever a Job is finished
