@@ -70,15 +70,15 @@ services:
     volumes:
       - superset-config:/superset
 
-  # # Grafana data visualisation
-  # grafana:
-  #   image: grafana/grafana-oss:8.2.7
-  #   hostname: grafana
-  #   container_name: grafana-grafana-oss
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - grafana-storage:/var/lib/grafana
+  # Grafana data visualisation
+  grafana:
+    image: grafana/grafana-oss:8.2.7
+    hostname: grafana
+    container_name: grafana-grafana-oss
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
 
   # Robo4Toys ROSE-AP 1
   oee:
@@ -148,6 +148,6 @@ volumes:
     driver: local
   superset-config:
     driver: local
-  # grafana-storage:
-  #   driver: local
+  grafana-storage:
+    driver: local
 
