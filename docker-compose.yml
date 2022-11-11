@@ -36,16 +36,6 @@ services:
       - "CYGNUS_SERVICE_PORT=5055" # Notification Port that Cygnus listens to for Postgres subscriptions
       - "CYGNUS_API_PORT=5080" # Port that Cygnus listens on for operational reasons
 
-  # Grafana data visualisation
-  grafana:
-    image: grafana/grafana-oss:8.2.7
-    hostname: grafana
-    container_name: grafana-grafana-oss
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana-storage:/var/lib/grafana
-
   # Databases - Orion uses Mongo-DB, Cygnus is persisting to Postgres
   mongo-db:
     # mongo 5.0.9 works fine too, but not on all hosts
@@ -70,6 +60,25 @@ services:
       - "POSTGRES_DB=${POSTGRES_DATABASE}"
     volumes:
       - postgres-db:/var/lib/postgresql/data
+
+  # Apache Superset data visualisation
+  superset:
+    image: tylerfowler/superset:1.5.1
+    hostname: superset
+    ports:
+      - "8088:8088"
+    volumes:
+      - superset-config:/superset
+
+  # # Grafana data visualisation
+  # grafana:
+  #   image: grafana/grafana-oss:8.2.7
+  #   hostname: grafana
+  #   container_name: grafana-grafana-oss
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-storage:/var/lib/grafana
 
   # Robo4Toys ROSE-AP 1
   oee:
@@ -137,6 +146,8 @@ volumes:
     driver: local
   postgres-db:
     driver: local
-  grafana-storage:
+  superset-config:
     driver: local
+  # grafana-storage:
+  #   driver: local
 
