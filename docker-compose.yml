@@ -61,15 +61,6 @@ services:
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
-  # Apache Superset data visualisation
-  superset:
-    image: tylerfowler/superset:1.5.1
-    hostname: superset
-    ports:
-      - "8088:8088"
-    volumes:
-      - superset-config:/superset
-
   # Grafana data visualisation
   grafana:
     image: grafana/grafana-oss:8.2.7
@@ -125,28 +116,10 @@ services:
       USE_PLUGIN: "true"
 
 
-  # SFTP server to be used by the ERP and the Job reporter
-  # Container specific to Robo4Toys
-  # Feel free to delete it
-  # sftp:
-  #   image: atmoz/sftp
-  #   ports:
-  #     - "2222:22"
-  #   command: ${SFTP_USER}:${SFTP_PASSWORD}:::share
-
-  # ERP reporter microservice:
-  # Uploads an XML to the sftp container whenever a Job is finished
-  #erp-reporter:
-  #  image: erp-reporter
-  #  hostname: erp-reporter
-  #  container_name: r4t-erp-reporter
-
 volumes:
   mongo-db:
     driver: local
   postgres-db:
-    driver: local
-  superset-config:
     driver: local
   grafana-storage:
     driver: local
