@@ -9,9 +9,12 @@ MOMAMS provides a system for
 - OEE visualisation and
 - sending alerts for operators about failures or upcoming tasks.
 
+You can see a manager dashboard below:
+![MOMAMS manager dashboard](img/MOMAMS_manager_dashboard.png)
+
 ## Overview
 The system was developed as a part of a [DIH²](http://dih-squared.eu/) project.
-Developed by the Robo4Toys (R4T) TTE: [Artrade Ltd.](https://shop.rubik.hu/en/), Grip-Plast Ltd., [Robo-Tech Service Ltd.](https://robo-tech.hu/en/), .
+Developed by the Robo4Toys (R4T) TTE: [Artrade Ltd.](https://shop.rubik.hu/en/), Grip-Plast Ltd., [Robo-Tech Service Ltd.](https://robo-tech.hu/en/).
 
 The system is capable of handling manufacturing systems that
 - match the criteria of the [Job-shop scheduling problem](https://en.wikipedia.org/wiki/Job-shop_scheduling),
@@ -19,7 +22,7 @@ The system is capable of handling manufacturing systems that
 
 ## Architecture and modules
 The overall architecture is shown below: 
-![MOMAMS architecture and modules](img/R4T.drawio.png)
+![MOMAMS architecture and modules](img/R4T_with_IoT_agent.drawio.png)
 
 The software components can be separated into 3 groups: 
 - [Fiware](https://github.com/Fiware/tutorials.Getting-Started) software components,
@@ -128,12 +131,15 @@ You can find 3 Grafana dashboards in the [demo/Grafana](demo/Grafana) folder in 
 
 If you like, you can specify a Grafana alert for the TrayLoaderStorage's Counter as described [here](https://grafana.com/docs/grafana/latest/alerting/). You can use any alert channel you like. You can use the alerts dashboard. The normal users do not need to see this, this can remain a hidden dashboard only for alerting purposes.
 
-8. Stop MOMAMS
+### Stop MOMAMS
 
 Log out of Grafana, then
 
     $ docker-compose -p momams down
 
+### Try the IoT agent
+
+You can try the IoT agent as described [here](https://github.com/aviharos/iotagent-http#testing). During the tests you will see how the IoT agent can transform the HTTP requests and what the response is to each request.
 
 ## Environment Restrictions
 
