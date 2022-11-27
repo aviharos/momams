@@ -1,6 +1,9 @@
 # Vim swap files
 *.swp
 
+# Docker .env file 
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
