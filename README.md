@@ -1,6 +1,23 @@
 # Manufacturing OEE and MES Alert Management System (MOMAMS)
 [![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
 
+## Contents
+
+- [MOMAMS](#title)
+  - [Contents](#contents)
+  - [Purpose](#purpose)
+  - [Overview](#overview)
+  - [Architecture and modules](#architecture-and-modules)
+  - [How to adapt it?](#how-to-adapt-it)
+  - [How to deploy it?](#how-to-deploy-it)
+  - [How to use it?](#how-to-use-it)
+  - [Try MOMAMS](#try-momams)
+  - [Environment restrictions](#environment-restrictions)
+  - [Known limitations](#known-limitations)
+  - [Improvements backlog](#improvements-backlog)
+  - [License](#license)
+  - [Version history](#version-history)
+
 ## Purpose
 
 MOMAMS provides a system for
@@ -81,7 +98,7 @@ Whenever an attribute of any object (except the OEE and Throughput objects) chan
 
 The Grafana dashboards and alerts needs to be set up according to the company's specific needs. Grafana uses PostgreSQL historic data.
 
-## Try MOMAMS (live demo)
+## Try MOMAMS
 
 You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2.
 
