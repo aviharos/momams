@@ -66,7 +66,7 @@ The environment variables (database login credentials, configuration, etc) need 
 
 Start docker project using docker-compose:
 
-	docker-compose -p momams up -d
+	$ docker-compose -p momams up -d
 
 ## How to use it?
 
@@ -82,9 +82,9 @@ The Grafana dashboards and alerts needs to be set up according to the company's 
 
 You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2.
 
-1. Install docker and docker-compose
+### Install docker and docker-compose
 
-2. Install MOMAMS, build Robo4Toys microsercices:
+### Install MOMAMS, build Robo4Toys microsercices:
 
     $ git clone https://github.com/aviharos/oee.git 
     $ cd oee
@@ -96,19 +96,19 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
     $ cd ..
     $ git clone https://github.com/aviharos/momams.git 
 
-3. Install [Postman](https://www.postman.com/)
+### Install [Postman](https://www.postman.com/)
 
-4. Start MOMAMS
+### Start MOMAMS
 
     $ cd momams
     $ docker-compose -p momams up -d 
 
-5. Notify Cygnus of all context changes
+### Notify Cygnus of all context changes
 
     $ chmod +x ./notify_cygnus.sh
     $ ./notify_cygnus.sh
 
-6. Postman commands
+### Postman commands
 
 Import the [demo Postman request collection](demo/Postman_requests.json).
 
@@ -120,7 +120,7 @@ You can simulate turning the InjectionMoulding1 machine on and off with their re
 
 Turn on the InjectionMoulding1 machine. Make a few good parts and if you want, rejects too. Wait for about a minute, then get the OEE and Throughput objects. You can make parts periodically, and see how that affects the OEE values.
 
-7. Grafana
+### Grafana
 
 Set up Postgres as a Grafana data source. Keep in mind that since Grafana and Postgres are both on the same docker network, you do not need TLS authentication, the hostname is postgres-db. You can see the Postgres password in the [.env](.env) file.
 
