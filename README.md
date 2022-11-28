@@ -31,7 +31,7 @@ You can see a manager dashboard below:
 
 ## Overview
 The system was developed as a part of a [DIH²](http://dih-squared.eu/) project.
-Developed by the Robo4Toys (R4T) TTE: [Artrade Ltd.](https://shop.rubik.hu/en/), Grip-Plast Ltd., [Robo-Tech Service Ltd.](https://robo-tech.hu/en/).
+Developed by the Robo4Toys (R4T) TTE: [Artrade Ltd.](https://shop.rubik.hu/en/), Grip-Plast Ltd., [Robo-Tech Service Ltd.](https://robo-tech.hu/en/)
 
 The system is capable of handling manufacturing systems that
 - match the criteria of the [Job-shop scheduling problem](https://en.wikipedia.org/wiki/Job-shop_scheduling),
@@ -130,7 +130,7 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 
 ### Postman commands
 
-Import the [demo Postman request collection](demo/Postman_requests.json).
+Import the [demo Postman request collection](demo/MOMAMS_demo.postman_collection.json).
 
 Use the "Update all objects" request to create or reset the objects any time you want.
 
