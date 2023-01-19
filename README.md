@@ -58,19 +58,16 @@ The Orion objects need to be created using [Postman](https://www.postman.com/) a
 
 The Orion Context Broker notifies [Fiware Cygnus](https://github.com/FIWARE/tutorials.Historic-Context-Flume) whenever a component changes. Cygnus stores all historical data into a [PostgreSQL](https://www.postgresql.org/) historic database. The user needs to configure this notification when the docker project is started.
 
-The [R4T OEE microservice](https://github.com/aviharos/oee) periodically calculates the OEE data and the throughput of each Workstation object and constantly updates them as separate Orion objects. There is one OEE and Throughput object for each Workstation. Since Cygnus logs the changes in the OEE and Throughput objects too, there will be one PostgreSQL table for the OEE and Throughput objects' logs for each Workstation.
+The [R4T OEE microservice](https://github.com/aviharos/oee) periodically calculates the OEE data and the throughput of each Workstation object and constantly updates them as attributes of the Workstation object. Since Cygnus logs the changes in the OEE and Throughput attributes too, these KPIs will be included in the PostgreSQL table for the Workstation object's logs.
 
 [Grafana](https://grafana.com/) is connected to the PostgreSQL. It is configured with custom dashboards. Operators and managers can be configured to have different privileges and different dashboards. Grafana is also configured to check certain values, and if they exceed or fall below a certain threshold, Grafana sends an alert to the operator about a task through [Discord](https://discord.com/). The Grafana configuration, including alerting is covered in-depth in the official tutorials. The alert can also be displayed on the dashboard using Grafana's value mapping feature.
 
 ## How to adapt it?
 
-First of all, read the [R4T OEE microservice's docs](https://github.com/aviharos/oee). It covers most of the adoption of MOMAMS. You need to follow the OEE microservice's data model is described in the OEE microservice's README. MOMAMS extends this data model with the following:
+First of all, read the [R4T OEE microservice's docs](https://github.com/aviharos/oee), including the 3 official Fiware tutorials referenced in it. These cover most of the adoption of MOMAMS. You need to follow the OEE microservice's data model is described in the OEE microservice's README. MOMAMS extends this data model with the following:
 
 - Storages:
     - add storage objects with counters
-- Jobs:
-    - add the following attributes to each Workstation:
-        - RefWorkstation: refers to the Workstation of the Job's current operation
 
 See the [json](json) folder for an example setup.
 
@@ -86,15 +83,15 @@ The environment variables (database login credentials, configuration, etc) need 
 
 Start docker project using docker-compose:
 
-	$ docker-compose -p momams up -d
+	$ ./docker-compose_up.sh
 
 ## How to use it?
 
 Then the Orion Context Broker must be [configured to notify Cygnus](https://github.com/aviharos/oee#notifying-cygnus-of-all-context-changes) of all context changes.
 
-At startup, each object's initial state needs to be uploaded to the Orion context broker except for the OEE and Throughput objects. The representation of the manufacturing system, the jobs and the parts, etc. are defined here. The objects must match match the OEE microservice's [requirements](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
+At startup, each object's initial state needs to be uploaded to the Orion context broker. The representation of the manufacturing system, the jobs and the parts, etc. are defined here. The objects must match match the OEE microservice's [specifications](https://github.com/aviharos/oee#objects-in-the-orion-context-broker).
 
-Whenever an attribute of any object (except the OEE and Throughput objects) changes, you must update it in the Orion Context Broker using a PLC's HTTP function, a Raspberry Pi or other device.
+Whenever an attribute of any object changes, you must update it in the Orion Context Broker using a PLC's HTTP function, a Raspberry Pi or other IoT device.
 
 The Grafana dashboards and alerts needs to be set up according to the company's specific needs. Grafana uses PostgreSQL historic data.
 
@@ -121,7 +118,8 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 ### Start MOMAMS
 
     $ cd momams
-    $ docker-compose -p momams up -d 
+    $ chmod +x ./docker-compose_up.sh
+    $ ./docker-compose_up.sh
 
 ### Notify Cygnus of all context changes
 
@@ -134,25 +132,25 @@ Import the [demo Postman request collection](demo/MOMAMS_demo.postman_collection
 
 Use the "Update all objects" request to create or reset the objects any time you want.
 
-Click on all the GET requests to get the Orion objects. You can use these requests to query the Orion objects any time during the demo - including the OEE and Throughput objects. Please, study how the data model works in this case.
+Click on all the GET requests to get the Orion objects. You can use these requests to query the Orion objects any time during the demo. Please, study how the data model works in this case.
 
 You can simulate turning the InjectionMoulding1 machine on and off with their respective requests. You can also simulate good and reject parts made with these two requests.
 
-Turn on the InjectionMoulding1 machine. Make a few good parts and if you want, rejects too. Wait for about a minute, then get the OEE and Throughput objects. You can make parts periodically, and see how that affects the OEE values.
+Turn on the InjectionMoulding1 machine. Make a few good parts and if you want, rejects too. Wait for about a minute, then query the InjectionMoulding1 object to see the calculated KPIs. You can make parts periodically, and see how that affects the OEE values.
 
 ### Grafana
 
-Set up Postgres as a Grafana data source. Keep in mind that since Grafana and Postgres are both on the same docker network, you do not need TLS authentication, the hostname is postgres-db. You can see the Postgres password in the [.env](.env) file.
+Set up Postgres as a Grafana data source. Keep in mind that since Grafana and Postgres are both on the same docker network, you do not need TLS authentication, the hostname is `postgres-db`. You can see the Postgres password in the [.env](.env) file.
 
-You can find 3 Grafana dashboards in the [demo/Grafana](demo/Grafana) folder in json format. Create 3 new dashboards in Grafana, then open them one by one, click settings, and copy-paste one of the dashboard's json data to recreate it.
+You can find 3 Grafana dashboards in the [demo/Grafana](demo/Grafana) folder in json format. Create 3 new dashboards in Grafana, then open them one by one, click settings, and copy-paste one of the dashboard's json data to recreate them.
 
-If you like, you can specify a Grafana alert for the TrayLoaderStorage's Counter as described [here](https://grafana.com/docs/grafana/latest/alerting/). You can use any alert channel you like. You can use the alerts dashboard. The normal users do not need to see this, this can remain a hidden dashboard only for alerting purposes.
+If you like, you can specify a Grafana alert for the TrayLoaderStorage's Counter as described [here](https://grafana.com/docs/grafana/latest/alerting/). You can use any alert channel you like. You can use the alerts dashboard. The normal users do not need to see this dashboard. It can remain a hidden dashboard only for alerting purposes.
 
 ### Stop MOMAMS
 
 Log out of Grafana, then
 
-    $ docker-compose -p momams down
+    $ ./docker-compose_down.sh
 
 ### Try the IoT agent
 
@@ -160,7 +158,15 @@ You can try the IoT agent as described [here](https://github.com/aviharos/iotage
 
 ## Environment Restrictions
 
+## Troubleshooting
+
+If you encounter any trouble using the microservice, query all `i40Asset`, `i40Recipe`, `i40Process` objects from Orion. Also check the logs of the two MOMAMS microservices:
+
+    $ docker logs momams-oee
+    $ docker logs momams-iotagent-http
+
 ## Known Limitations
+
 The manufacturing processes must be able to translated into a Job-shop scheduling problem.
 
 ## Improvements Backlog
