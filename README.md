@@ -64,7 +64,7 @@ The [R4T OEE microservice](https://github.com/aviharos/oee) periodically calcula
 
 ## How to adapt it?
 
-First of all, read the [R4T OEE microservice's docs](https://github.com/aviharos/oee), including the 3 official Fiware tutorials referenced in it. These cover most of the adoption of MOMAMS. You need to follow the OEE microservice's data model is described in the OEE microservice's README. MOMAMS extends this data model with the following:
+First of all, read the [R4T OEE microservice's docs](https://github.com/aviharos/oee), including the 3 official Fiware tutorials referenced in it. Also, read the beginner [Grafana tutorials](https://grafana.com/tutorials/). These cover most of the adoption of MOMAMS. You need to follow the OEE microservice's data model is described in the OEE microservice's README. MOMAMS extends this data model with the following:
 
 - Storages:
     - add storage objects with counters
