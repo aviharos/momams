@@ -81,9 +81,9 @@ Prerequisites:
 
 The environment variables (database login credentials, configuration, etc) need to be set in the [.env](.env) file.
 
-Start docker project using docker-compose:
+Start docker project using docker compose:
 
-	$ ./docker-compose_up.sh
+	$ ./docker_compose_up.sh
 
 ## How to use it?
 
@@ -99,7 +99,7 @@ The Grafana dashboards and alerts needs to be set up according to the company's 
 
 You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2.
 
-### Install docker and docker-compose
+### Install docker and docker compose
 
 ### Install MOMAMS, build Robo4Toys microsercices:
 
@@ -118,8 +118,8 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 ### Start MOMAMS
 
     $ cd momams
-    $ chmod +x ./docker-compose_up.sh
-    $ ./docker-compose_up.sh
+    $ chmod +x ./docker_compose_up.sh
+    $ ./docker_compose_up.sh
 
 ### Notify Cygnus of all context changes
 
@@ -150,7 +150,7 @@ If you like, you can specify a Grafana alert for the TrayLoaderStorage's Counter
 
 Log out of Grafana, then
 
-    $ ./docker-compose_down.sh
+    $ ./docker_compose_down.sh
 
 ### Try the IoT agent
 
