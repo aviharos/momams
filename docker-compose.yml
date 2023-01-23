@@ -95,6 +95,7 @@ services:
      POSTGRES_PORT: 5432
      POSTGRES_SCHEMA: "default_service"
      POSTGRES_USER: "${POSTGRES_USER}"
+     TZ: "Europe/Budapest"
 
   # Robo4Toys ROSE-AP 2
   iotagent-http:
