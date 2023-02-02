@@ -10,7 +10,7 @@
 			"name": "OEE microservice",
 			"item": [
 				{
-					"name": "Update all objects",
+					"name": "Reset all objects",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"actionType\": \"append\",\r\n    \"entities\": [\r\n        {\r\n            \"type\": \"Part\",\r\n            \"id\": \"urn:ngsi_ld:Part:Cover001\",\r\n            \"Operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    {\r\n                        \"type\": \"Operation\",\r\n                        \"OperationNumber\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 10\r\n                        },\r\n                        \"OperationType\": {\r\n                            \"type\": \"Text\",\r\n                            \"value\": \"Cover001_injection_moulding\"\r\n                        },\r\n                        \"CycleTime\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 46\r\n                        },\r\n                        \"PartsPerCycle\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 8\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Part\",\r\n            \"id\": \"urn:ngsi_ld:Part:Cube001\",\r\n            \"Operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    {\r\n                        \"type\": \"Operation\",\r\n                        \"OperationNumber\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 10\r\n                        },\r\n                        \"OperationType\": {\r\n                            \"type\": \"Text\",\r\n                            \"value\": \"Cube001_injection_moulding\"\r\n                        },\r\n                        \"CycleTime\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 46\r\n                        },\r\n                        \"PartsPerCycle\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 8\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Workstation\",\r\n            \"id\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\",\r\n            \"Available\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": false\r\n            },\r\n            \"Alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"RefJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Job:202200045\"\r\n            },\r\n            \"RefOEE\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:OEE:InjectionMoulding1\"\r\n            },\r\n            \"RefThroughput\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Throughput:InjectionMoulding1\"\r\n            },\r\n            \"RefOperatorSchedule\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:OperatorSchedule:1\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Throughput\",\r\n            \"id\": \"urn:ngsi_ld:Throughput:InjectionMoulding1\",\r\n            \"RefWorkstation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\"\r\n            },\r\n            \"RefJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Job:202200045\"\r\n            },\r\n            \"ThroughputPerShift\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Storage\",\r\n            \"id\": \"urn:ngsi_ld:Storage:TrayLoaderStorage1\",\r\n            \"Capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 2\r\n            },\r\n            \"Counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 2\r\n            },\r\n            \"Alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"SubType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"Step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Storage\",\r\n            \"id\": \"urn:ngsi_ld:Storage:TrayUnloaderStorage1\",\r\n            \"Capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 2\r\n            },\r\n            \"Counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"Alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"SubType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"Step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"OEE\",\r\n            \"id\": \"urn:ngsi_ld:OEE:InjectionMoulding1\",\r\n            \"RefWorkstation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\"\r\n            },\r\n            \"RefJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Job:202200045\"\r\n            },\r\n            \"Availability\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"Performance\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"Quality\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"OEE\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Storage\",\r\n            \"id\": \"urn:ngsi_ld:Storage:RejectStorage1\",\r\n            \"Capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1000\r\n            },\r\n            \"Counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"Alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"SubType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"Step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Job\",\r\n            \"id\": \"urn:ngsi_ld:Job:202200045\",\r\n            \"RefPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Part:Core001\"\r\n            },\r\n            \"RefWorkstation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\"\r\n            },\r\n            \"JobNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 202200045\r\n            },\r\n            \"CurrentOperationType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Core001_injection_moulding\"\r\n            },\r\n            \"JobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"JobStartDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-11-21\"\r\n            },\r\n            \"JobEndDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-11-25\"\r\n            },\r\n            \"JobDueDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-02\"\r\n            },\r\n            \"GoodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"RejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"Finished\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": false\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Job\",\r\n            \"id\": \"urn:ngsi_ld:Job:202200046\",\r\n            \"RefPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Part:Cover001\"\r\n            },\r\n            \"RefWorkstation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\"\r\n            },\r\n            \"JobNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 202200046\r\n            },\r\n            \"CurrentOperationType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Cover001_injection_moulding\"\r\n            },\r\n            \"JobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"JobStartDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-11-28\"\r\n            },\r\n            \"JobEndDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-02\"\r\n            },\r\n            \"JobDueDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-09\"\r\n            },\r\n            \"GoodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"RejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"Finished\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": false\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Job\",\r\n            \"id\": \"urn:ngsi_ld:Job:202200047\",\r\n            \"RefPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Part:Cube001\"\r\n            },\r\n            \"RefWorkstation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsi_ld:Workstation:InjectionMoulding1\"\r\n            },\r\n            \"JobNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 202200047\r\n            },\r\n            \"CurrentOperationType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Cube001_injection_moulding\"\r\n            },\r\n            \"JobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 4000\r\n            },\r\n            \"JobStartDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-05\"\r\n            },\r\n            \"JobEndDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-09\"\r\n            },\r\n            \"JobDueDate\": {\r\n                \"type\": \"Date\",\r\n                \"value\": \"2022-12-16\"\r\n            },\r\n            \"GoodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"RejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"Finished\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": false\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"OperatorSchedule\",\r\n            \"id\": \"urn:ngsi_ld:OperatorSchedule:1\",\r\n            \"OperatorWorkingScheduleStartsAt\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"00:00:00\"\r\n            },\r\n            \"OperatorWorkingScheduleStopsAt\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"23:59:59\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"Part\",\r\n            \"id\": \"urn:ngsi_ld:Part:Core001\",\r\n            \"Operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    {\r\n                        \"type\": \"Operation\",\r\n                        \"OperationNumber\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 10\r\n                        },\r\n                        \"OperationType\": {\r\n                            \"type\": \"Text\",\r\n                            \"value\": \"Core001_injection_moulding\"\r\n                        },\r\n                        \"CycleTime\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 36\r\n                        },\r\n                        \"PartsPerCycle\": {\r\n                            \"type\": \"Number\",\r\n                            \"value\": 8\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ]\r\n}"
+							"raw": "{\r\n    \"actionType\": \"append\",\r\n    \"entities\": [\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Shift:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Shift\"\r\n            },\r\n            \"start\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"8:00:00\"\r\n            },\r\n            \"end\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"23:00:00\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000001\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:core001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000003\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cube001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 4000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage2\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cube001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cube001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:core001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:core001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:core001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Core001\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:cube001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Cube001\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:core001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage2\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cover001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cube001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000002\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cover001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Workstation:001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Workstation\"\r\n            },\r\n            \"available\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": true\r\n            },\r\n            \"refJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Process:Job:000001\"\r\n            },\r\n            \"refShift\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Shift:001\"\r\n            },\r\n            \"oee\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeAvailability\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeePerformance\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeQuality\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeObject\": {\r\n                \"type\": \"OEE\",\r\n                \"value\": {\r\n                    \"oee\": null,\r\n                    \"availability\": null,\r\n                    \"performance\": null,\r\n                    \"quality\": null\r\n                }\r\n            },\r\n            \"throughputPerShift\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:cover001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Cover001\"\r\n            }\r\n        }\r\n    ]\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:1026/v2/op/update",
@@ -41,13 +41,13 @@
 					"response": []
 				},
 				{
-					"name": "InjectionMoulding1 on",
+					"name": "Workstation001 on",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
+								"value": "text/plain",
 								"type": "text"
 							}
 						],
@@ -56,7 +56,7 @@
 							"raw": "true"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Workstation:InjectionMoulding1/attrs/Available/value",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -65,9 +65,9 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Workstation:InjectionMoulding1",
+								"urn:ngsiv2:i40Asset:Workstation:001",
 								"attrs",
-								"Available",
+								"available",
 								"value"
 							]
 						}
@@ -75,7 +75,7 @@
 					"response": []
 				},
 				{
-					"name": "InjectionMoulding1 off",
+					"name": "Workstation001 off",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -90,7 +90,7 @@
 							"raw": "false"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Workstation:InjectionMoulding1/attrs/Available/value",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -99,9 +99,9 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Workstation:InjectionMoulding1",
+								"urn:ngsiv2:i40Asset:Workstation:001",
 								"attrs",
-								"Available",
+								"available",
 								"value"
 							]
 						}
@@ -124,7 +124,7 @@
 							"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Job:202200045/attrs/GoodPartCounter",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/goodPartCounter",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -133,9 +133,9 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Job:202200045",
+								"urn:ngsiv2:i40Process:Job:000001",
 								"attrs",
-								"GoodPartCounter"
+								"goodPartCounter"
 							]
 						}
 					},
@@ -157,7 +157,7 @@
 							"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Job:202200045/attrs/RejectPartCounter",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/rejectPartCounter",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -166,16 +166,16 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Job:202200045",
+								"urn:ngsiv2:i40Process:Job:000001",
 								"attrs",
-								"RejectPartCounter"
+								"rejectPartCounter"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Tray leaves TrayLoaderStorage1",
+					"name": "Tray leaves trayLoaderStorage1",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -190,7 +190,7 @@
 							"raw": "{\"value\": {\"$inc\": -1}, \"type\": \"Number\"}"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Storage:TrayLoaderStorage1/attrs/Counter",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1/attrs/counter",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -199,16 +199,16 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Storage:TrayLoaderStorage1",
+								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
 								"attrs",
-								"Counter"
+								"counter"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Refill TrayLoaderStorage1",
+					"name": "Refill trayLoaderStorage1",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -220,10 +220,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "2"
+							"raw": "20"
 						},
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Storage:TrayLoaderStorage1/attrs/Counter/value",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1/attrs/counter/value",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -232,9 +232,9 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Storage:TrayLoaderStorage1",
+								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
 								"attrs",
-								"Counter",
+								"counter",
 								"value"
 							]
 						}
@@ -262,12 +262,12 @@
 					"response": []
 				},
 				{
-					"name": "Get InjectionMoulding1",
+					"name": "Get Workstation001",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Workstation:InjectionMoulding1?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -276,7 +276,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Workstation:InjectionMoulding1"
+								"urn:ngsiv2:i40Asset:Workstation:001"
 							],
 							"query": [
 								{
@@ -289,12 +289,12 @@
 					"response": []
 				},
 				{
-					"name": "Get Job202200045 Core",
+					"name": "Get Job000001 Core",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Job:202200045?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -303,7 +303,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Job:202200045"
+								"urn:ngsiv2:i40Process:Job:000001"
 							],
 							"query": [
 								{
@@ -316,12 +316,12 @@
 					"response": []
 				},
 				{
-					"name": "Get Job202200046 Cover",
+					"name": "Get Job000002 Cover",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Job:202200046?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000002?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -330,7 +330,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Job:202200046"
+								"urn:ngsiv2:i40Process:Job:000002"
 							],
 							"query": [
 								{
@@ -343,12 +343,12 @@
 					"response": []
 				},
 				{
-					"name": "Get Job202200047 Cube",
+					"name": "Get Job000003 Cube",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Job:202200047?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000003?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -357,7 +357,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Job:202200047"
+								"urn:ngsiv2:i40Process:Job:000003"
 							],
 							"query": [
 								{
@@ -370,12 +370,12 @@
 					"response": []
 				},
 				{
-					"name": "Get TrayLoaderStorage1",
+					"name": "Get trayLoaderStorage1",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Storage:TrayLoaderStorage1?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -384,7 +384,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Storage:TrayLoaderStorage1"
+								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1"
 							],
 							"query": [
 								{
@@ -397,12 +397,12 @@
 					"response": []
 				},
 				{
-					"name": "Get TrayUnloaderStorage1",
+					"name": "Get trayUnloaderStorage1",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Storage:TrayUnloaderStorage1?options=keyValues",
+							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1?options=keyValues",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -411,88 +411,7 @@
 							"path": [
 								"v2",
 								"entities",
-								"urn:ngsi_ld:Storage:TrayUnloaderStorage1"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get RejectStorage1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Storage:RejectStorage1?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsi_ld:Storage:RejectStorage1"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get OEE InjectionMoulding1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:OEE:InjectionMoulding1?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsi_ld:OEE:InjectionMoulding1"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Throughput InjectionMoulding1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsi_ld:Throughput:InjectionMoulding1?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsi_ld:Throughput:InjectionMoulding1"
+								"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1"
 							],
 							"query": [
 								{
@@ -531,7 +450,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"url\": \"http://orion:1026/v2/entities\",\r\n\"method\": \"POST\",\r\n\"headers\": [\"Content-Type: application/json\"],\r\n\"data\": {\r\n\"type\": \"Storage\",\r\n\"id\": \"urn:ngsi_ld:Storage:1\",\r\n\"Capacity\": {\"type\": \"Number\", \"value\": 100},\r\n\"Counter\": {\"type\": \"Number\", \"value\": 100}\r\n}}\r\n"
+							"raw": "{\"url\": \"http://orion:1026/v2/entities\",\r\n\"method\": \"POST\",\r\n\"headers\": [\"Content-Type: application/json\"],\r\n\"data\": {\r\n\"type\": \"Storage\",\r\n\"id\": \"urn:ngsiv2:i40Asset:Storage:001\",\r\n\"capacity\": {\"type\": \"Number\", \"value\": 100},\r\n\"counter\": {\"type\": \"Number\", \"value\": 100}\r\n}}\r\n"
 						},
 						"url": {
 							"raw": "localhost:4315",
@@ -550,7 +469,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsi_ld:Storage:1/attrs/Counter\",\r\n\"method\": \"PUT\",\r\n\"headers\": [\"Content-Type: application/json\"],\r\n\"data\": {\"value\": {\"dinc\": -1}, \"type\": \"Number\"}}\r\n"
+							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:001/attrs/counter\",\r\n\"method\": \"PUT\",\r\n\"headers\": [\"Content-Type: application/json\"],\r\n\"data\": {\"value\": {\"$inc\": -1}, \"type\": \"Number\"}}\r\n"
 						},
 						"url": {
 							"raw": "localhost:4315",
@@ -569,7 +488,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsi_ld:Storage:1\",\r\n\"method\": \"GET\",\r\n\"headers\": []\r\n}\r\n"
+							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:001\",\r\n\"method\": \"GET\",\r\n\"headers\": []\r\n}\r\n"
 						},
 						"url": {
 							"raw": "localhost:4315",
@@ -588,7 +507,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsi_ld:Storage:1\",\r\n\"method\": \"DELETE\",\r\n\"headers\": []\r\n}\r\n"
+							"raw": "{\"url\": \"http://orion:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:001\",\r\n\"method\": \"DELETE\",\r\n\"headers\": []\r\n}\r\n"
 						},
 						"url": {
 							"raw": "localhost:4315",
