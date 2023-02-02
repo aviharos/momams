@@ -1,9 +1,28 @@
 {
-	"type": "Storage",
-	"id": "urn:ngsi_ld:Storage:TrayLoaderStorage1",
-	"Capacity": {"type": "Number", "value": 2},
-	"Counter": {"type": "Number", "value": 2},
-	"Alert": {"type": "Text", "value": null},
-	"SubType": {"type": "Text", "value": "emptying"},
-    "Step": {"type": "Number", "value": -1}
+    "id": "urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
+    "type": "i40Asset",
+    "i40AssetType": {
+        "type": "Text",
+        "value": "Storage"
+    },
+    "capacity": {
+        "type": "Number",
+        "value": 20
+    },
+    "counter": {
+        "type": "Number",
+        "value": 20
+    },
+    "alert": {
+        "type": "Text",
+        "value": null
+    },
+    "subType": {
+        "type": "Text",
+        "value": "emptying"
+    },
+    "step": {
+        "type": "Number",
+        "value": -1
+    }
 }

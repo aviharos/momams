@@ -1,0 +1,18 @@
+{
+    "id": "urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001",
+    "type": "i40Recipe",
+    "i40RecipeType": {
+        "type": "Text",
+        "value": "SequenceOfOperations"
+    },
+    "refPart": {
+        "type": "Relationship",
+        "value": "urn:ngsiv2:i40Asset:Part:cover001"
+    },
+    "operations": {
+        "type": "List",
+        "value": [
+            "urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding"
+        ]
+    }
+}

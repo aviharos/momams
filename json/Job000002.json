@@ -1,0 +1,28 @@
+{
+    "id": "urn:ngsiv2:i40Process:Job:000002",
+    "type": "i40Process",
+    "i40ProcessType": {
+        "type": "Text",
+        "value": "Job"
+    },
+    "refPart": {
+        "type": "Relationship",
+        "value": "urn:ngsiv2:i40Asset:Part:cover001"
+    },
+    "refOperation": {
+        "type": "Relationship",
+        "value": "urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding"
+    },
+    "jobTargetNumber": {
+        "type": "Number",
+        "value": 8000
+    },
+    "goodPartCounter": {
+        "type": "Number",
+        "value": 0
+    },
+    "rejectPartCounter": {
+        "type": "Number",
+        "value": 0
+    }
+}

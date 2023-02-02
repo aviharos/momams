@@ -1,9 +1,0 @@
-{
-	"type": "Storage",
-	"id": "urn:ngsi_ld:Storage:CubeMagnetStorage1",
-	"Capacity": {"type": "Number", "value": 288},
-	"Counter": {"type": "Number", "value": 288},
-	"Alert": {"type": "Text", "value": null},
-	"SubType": {"type": "Text", "value": "emptying"},
-    "Step": {"type": "Number", "value": -16}
-}

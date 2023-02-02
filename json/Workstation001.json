@@ -1,0 +1,49 @@
+{
+    "id": "urn:ngsiv2:i40Asset:Workstation:001",
+    "type": "i40Asset",
+    "i40AssetType": {
+        "type": "Text",
+        "value": "Workstation"
+    },
+    "available": {
+        "type": "Boolean",
+        "value": true
+    },
+    "refJob": {
+        "type": "Relationship",
+        "value": "urn:ngsiv2:i40Process:Job:000001"
+    },
+    "refShift": {
+        "type": "Relationship",
+        "value": "urn:ngsiv2:i40Recipe:Shift:001"
+    },
+    "oee": {
+        "type": "Number",
+        "value": null
+    },
+    "oeeAvailability": {
+        "type": "Number",
+        "value": null
+    },
+    "oeePerformance": {
+        "type": "Number",
+        "value": null
+    },
+    "oeeQuality": {
+        "type": "Number",
+        "value": null
+    },
+    "oeeObject": {
+        "type": "OEE",
+        "value": {
+            "oee": null,
+            "availability": null,
+            "performance": null,
+            "quality": null
+        }
+    },
+    "throughputPerShift": {
+        "type": "Number",
+        "value": null
+    }
+}
