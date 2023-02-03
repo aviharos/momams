@@ -104,6 +104,10 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 
 ### Install docker and docker compose
 
+You might also want to add your user to the `docker` group. You need to log out and log in for the changes to take effect.
+
+    sudo usermod –a –G docker $USER
+
 ### Install MOMAMS, build Robo4Toys microsercices:
 
     git clone https://github.com/aviharos/oee.git 
@@ -133,13 +137,15 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 
 Import the [demo Postman request collection](demo/MOMAMS_demo.postman_collection.json).
 
-Use the "Update all objects" request to create or reset the objects any time you want.
+Check the current subscriptions with the "get subscriptions" request.
 
-Click on all the GET requests to get the Orion objects. You can use these requests to query the Orion objects any time during the demo. Please, study how the data model works in this case.
+Use the "init/reset all objects" request to create or reset the objects any time you want.
 
-You can simulate turning the InjectionMoulding1 machine on and off with their respective requests. You can also simulate good and reject parts made with these two requests.
+Click on all the GET requests in the folder "inspection" to get the Orion objects. You can use these requests to query the Orion objects any time during the demo. Please, study how the data model works in this case.
 
-Turn on the InjectionMoulding1 machine. Make a few good parts and if you want, rejects too. Wait for about a minute, then query the InjectionMoulding1 object to see the calculated KPIs. You can make parts periodically, and see how that affects the OEE values.
+You can simulate turning the `workstation001` machine on and off with their respective requests. You can also simulate good and reject parts made with these two requests. All these can be found in the production folder.
+
+Turn on the `workstation001` machine. Make a few good parts and if you want, rejects too. Wait for about a minute, then query the `workstation001` object to see the calculated KPIs. You can make parts periodically, and see how that affects the OEE values.
 
 ### Grafana
 
