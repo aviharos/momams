@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsiv2:i40Recipe:SequenceOfOperations:cube001",
+    "id": "urn:ngsiv2:i40Recipe:SequenceOfOperations:part002",
     "type": "i40Recipe",
     "i40RecipeType": {
         "type": "Text",
@@ -7,12 +7,12 @@
     },
     "refPart": {
         "type": "Relationship",
-        "value": "urn:ngsiv2:i40Asset:Part:cube001"
+        "value": "urn:ngsiv2:i40Asset:Part:part002"
     },
     "operations": {
         "type": "List",
         "value": [
-            "urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding"
+            "urn:ngsiv2:i40Recipe:Operation:part002:001"
         ]
     }
 }

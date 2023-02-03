@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding",
+    "id": "urn:ngsiv2:i40Recipe:Operation:part003:001",
     "type": "i40Recipe",
     "i40RecipeType": {
         "type": "Text",
@@ -7,7 +7,7 @@
     },
     "refSequenceOfOperations": {
         "type": "Relationship",
-        "value": "urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001"
+        "value": "urn:ngsiv2:i40Recipe:SequenceOfOperations:part003"
     },
     "cycleTime": {
         "type": "Number",

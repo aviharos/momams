@@ -7,11 +7,11 @@
     },
     "refPart": {
         "type": "Relationship",
-        "value": "urn:ngsiv2:i40Asset:Part:cover001"
+        "value": "urn:ngsiv2:i40Asset:Part:part002"
     },
     "refOperation": {
         "type": "Relationship",
-        "value": "urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding"
+        "value": "urn:ngsiv2:i40Recipe:Operation:part002:001"
     },
     "jobTargetNumber": {
         "type": "Number",

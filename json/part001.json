@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsiv2:i40Asset:Part:cube001",
+    "id": "urn:ngsiv2:i40Asset:Part:part001",
     "type": "i40Asset",
     "i40AssetType": {
         "type": "Text",
@@ -7,6 +7,6 @@
     },
     "refSequenceOfOperations": {
         "type": "Relationship",
-        "value": "urn:ngsiv2:SequenceOfOperations:Cube001"
+        "value": "urn:ngsiv2:SequenceOfOperations:part001"
     }
 }
