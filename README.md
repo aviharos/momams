@@ -83,7 +83,7 @@ The environment variables (database login credentials, configuration, etc) need 
 
 Start docker project using docker compose:
 
-	$ ./docker_compose_up.sh
+	./docker_compose_up.sh
 
 ## How to use it?
 
@@ -103,28 +103,28 @@ You can try MOMAMS before deploying it on test data. The steps needed for this c
 
 ### Install MOMAMS, build Robo4Toys microsercices:
 
-    $ git clone https://github.com/aviharos/oee.git 
-    $ cd oee
-    $ docker build -t oee:latest .
-    $ cd ..
-    $ git clone https://github.com/aviharos/iotagent-http.git
-    $ cd iotagent-http
-    $ docker build -t iotagent-http:latest .
-    $ cd ..
-    $ git clone https://github.com/aviharos/momams.git 
+    git clone https://github.com/aviharos/oee.git 
+    cd oee
+    docker build -t oee:latest .
+    cd ..
+    git clone https://github.com/aviharos/iotagent-http.git
+    cd iotagent-http
+    docker build -t iotagent-http:latest .
+    cd ..
+    git clone https://github.com/aviharos/momams.git 
 
 ### Install [Postman](https://www.postman.com/)
 
 ### Start MOMAMS
 
-    $ cd momams
-    $ chmod +x ./docker_compose_up.sh
-    $ ./docker_compose_up.sh
+    cd momams
+    chmod +x ./docker_compose_up.sh
+    ./docker_compose_up.sh
 
 ### Notify Cygnus of all context changes
 
-    $ chmod +x ./notify_cygnus.sh
-    $ ./notify_cygnus.sh
+    chmod +x ./notify_cygnus.sh
+    ./notify_cygnus.sh
 
 ### Postman commands
 
@@ -150,7 +150,7 @@ If you like, you can specify a Grafana alert for the TrayLoaderStorage's Counter
 
 Log out of Grafana, then
 
-    $ ./docker_compose_down.sh
+    ./docker_compose_down.sh
 
 ### Try the IoT agent
 
@@ -162,8 +162,8 @@ You can try the IoT agent as described [here](https://github.com/aviharos/iotage
 
 If you encounter any trouble using the microservice, query all `i40Asset`, `i40Recipe`, `i40Process` objects from Orion. Also check the logs of the two MOMAMS microservices:
 
-    $ docker logs momams-oee
-    $ docker logs momams-iotagent-http
+    docker logs momams-oee
+    docker logs momams-iotagent-http
 
 ## Known Limitations
 
