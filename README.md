@@ -74,10 +74,11 @@ See the [json](json) folder for an example setup.
 ## How to deploy it?
 
 Prerequisites:
- - Deployment requires [Docker Compose](https://docs.docker.com/compose/install/) v3.5 or above.
- - The OEE app needs to be [built](https://github.com/aviharos/oee#build) with docker
- - The IoT agent must be [built](https://github.com/aviharos/iotagent-http#build) with docker
- - During initial installation, internet access is required in order to download additional docker images according to [docker-compose.yml](docker-compose.yml)
+ - Deployment requires [Docker Compose](https://docs.docker.com/compose/install/) v3.5 or above,
+ - [curl](https://curl.se/),
+ - The OEE app needs to be [built](https://github.com/aviharos/oee#build) with docker,
+ - The IoT agent must be [built](https://github.com/aviharos/iotagent-http#build) with docker,
+ - During initial installation, internet access is required in order to download additional docker images according to [docker-compose.yml](docker-compose.yml).
 
 The environment variables (database login credentials, configuration, etc) need to be set in the [.env](.env) file.
 
@@ -98,6 +99,8 @@ The Grafana dashboards and alerts needs to be set up according to the company's 
 ## Try MOMAMS
 
 You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2.
+
+### Install curl
 
 ### Install docker and docker compose
 
