@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
+    "id": "urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001",
     "type": "i40Asset",
     "i40AssetType": {
         "type": "Text",

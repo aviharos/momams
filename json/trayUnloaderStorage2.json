@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage2",
+    "id": "urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage:002",
     "type": "i40Asset",
     "i40AssetType": {
         "type": "Text",
