@@ -1,427 +1,483 @@
 {
 	"info": {
-		"_postman_id": "3f9e4e4b-400e-4abd-ad22-407454ece41b",
+		"_postman_id": "1faf641d-865b-4297-acd0-5c3bb1a47804",
 		"name": "MOMAMS demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20508231"
 	},
 	"item": [
 		{
-			"name": "OEE microservice",
+			"name": "oee",
 			"item": [
 				{
-					"name": "Reset all objects",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"actionType\": \"append\",\r\n    \"entities\": [\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Shift:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Shift\"\r\n            },\r\n            \"start\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"8:00:00\"\r\n            },\r\n            \"end\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"23:00:00\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000001\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:core001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000003\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cube001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 4000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage2\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cube001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cube001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:core001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:core001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:core001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Core001\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:cube001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Cube001\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:core001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:core001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage2\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cover001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cover001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:cube001:injectionMoulding\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:cube001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000002\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:cover001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:cover001:injectionMoulding\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Workstation:001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Workstation\"\r\n            },\r\n            \"available\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": true\r\n            },\r\n            \"refJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Process:Job:000001\"\r\n            },\r\n            \"refShift\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Shift:001\"\r\n            },\r\n            \"oee\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeAvailability\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeePerformance\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeQuality\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeObject\": {\r\n                \"type\": \"OEE\",\r\n                \"value\": {\r\n                    \"oee\": null,\r\n                    \"availability\": null,\r\n                    \"performance\": null,\r\n                    \"quality\": null\r\n                }\r\n            },\r\n            \"throughputPerShift\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:cover001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:Cover001\"\r\n            }\r\n        }\r\n    ]\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/op/update",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"op",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Workstation001 on",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "text/plain",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "true"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Workstation:001",
-								"attrs",
-								"available",
-								"value"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Workstation001 off",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "text/plain",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "false"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Workstation:001",
-								"attrs",
-								"available",
-								"value"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Good parts made",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/goodPartCounter",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Process:Job:000001",
-								"attrs",
-								"goodPartCounter"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Reject parts made",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/rejectPartCounter",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Process:Job:000001",
-								"attrs",
-								"rejectPartCounter"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Tray leaves trayLoaderStorage1",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"value\": {\"$inc\": -1}, \"type\": \"Number\"}"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1/attrs/counter",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
-								"attrs",
-								"counter"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Refill trayLoaderStorage1",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "text/plain",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "20"
-						},
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1/attrs/counter/value",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1",
-								"attrs",
-								"counter",
-								"value"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get subscriptions",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/subscriptions",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"subscriptions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Workstation001",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Workstation:001"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
+					"name": "init",
+					"item": [
+						{
+							"name": "subscriptions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/subscriptions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"subscriptions"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "reset all objects",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"actionType\": \"append\",\r\n    \"entities\": [\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:part001:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:part001\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:part002\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:part002\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:part003:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:part003\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:sequenceOfOperations:part001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part001\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:part001:001\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:part003\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:part003\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:part002\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part002\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:part002:001\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage:002\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Part:part001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Part\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:SequenceOfOperations:part001\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Operation:part002:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Operation\"\r\n            },\r\n            \"refSequenceOfOperations\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:part002\"\r\n            },\r\n            \"cycleTime\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 46\r\n            },\r\n            \"partsPerCycle\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:SequenceOfOperations:part003\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"SequenceOfOperations\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part003\"\r\n            },\r\n            \"operations\": {\r\n                \"type\": \"List\",\r\n                \"value\": [\r\n                    \"urn:ngsiv2:i40Recipe:Operation:part003:001\"\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000001\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part001\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:part001:001\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Shift:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Shift\"\r\n            },\r\n            \"start\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"8:00:00\"\r\n            },\r\n            \"end\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"16:00:00\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000002\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part002\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:part002:001\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 8000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Process:Job:000003\",\r\n            \"type\": \"i40Process\",\r\n            \"i40ProcessType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Job\"\r\n            },\r\n            \"refPart\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Asset:Part:part003\"\r\n            },\r\n            \"refOperation\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Operation:part003:001\"\r\n            },\r\n            \"jobTargetNumber\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 4000\r\n            },\r\n            \"goodPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"rejectPartCounter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Workstation:001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Workstation\"\r\n            },\r\n            \"available\": {\r\n                \"type\": \"Boolean\",\r\n                \"value\": true\r\n            },\r\n            \"refJob\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Process:Job:000001\"\r\n            },\r\n            \"refShift\": {\r\n                \"type\": \"Relationship\",\r\n                \"value\": \"urn:ngsiv2:i40Recipe:Shift:001\"\r\n            },\r\n            \"oee\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeAvailability\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeePerformance\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeQuality\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            },\r\n            \"oeeObject\": {\r\n                \"type\": \"OEE\",\r\n                \"value\": {\r\n                    \"oee\": null,\r\n                    \"availability\": null,\r\n                    \"performance\": null,\r\n                    \"quality\": null\r\n                }\r\n            },\r\n            \"throughputPerShift\": {\r\n                \"type\": \"Number\",\r\n                \"value\": null\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:002\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 10\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"emptying\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": -1\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage:001\",\r\n            \"type\": \"i40Asset\",\r\n            \"i40AssetType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Storage\"\r\n            },\r\n            \"capacity\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 20\r\n            },\r\n            \"counter\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 0\r\n            },\r\n            \"alert\": {\r\n                \"type\": \"Text\",\r\n                \"value\": null\r\n            },\r\n            \"subType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"filling\"\r\n            },\r\n            \"step\": {\r\n                \"type\": \"Number\",\r\n                \"value\": 1\r\n            }\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/op/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"op",
+										"update"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get Job000001 Core",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Process:Job:000001"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
+					"name": "production",
+					"item": [
+						{
+							"name": "workstation001 on",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "true"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Workstation:001",
+										"attrs",
+										"available",
+										"value"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "workstation001 off",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "false"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001/attrs/available/value",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Workstation:001",
+										"attrs",
+										"available",
+										"value"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "good parts completed",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/goodPartCounter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Process:Job:000001",
+										"attrs",
+										"goodPartCounter"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject parts completed",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"value\": {\"$inc\": 8}, \"type\": \"Number\"}"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001/attrs/rejectPartCounter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Process:Job:000001",
+										"attrs",
+										"rejectPartCounter"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get Job000002 Cover",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000002?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Process:Job:000002"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
+					"name": "storage events",
+					"item": [
+						{
+							"name": "tray leaves trayLoaderStorage001",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"value\": {\"$inc\": -1}, \"type\": \"Number\"}"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001/attrs/counter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001",
+										"attrs",
+										"counter"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "refill trayLoaderStorage001",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "20"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001/attrs/counter/value",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001",
+										"attrs",
+										"counter",
+										"value"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get Job000003 Cube",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000003?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Process:Job:000003"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
+					"name": "inspection",
+					"item": [
+						{
+							"name": "workstation001",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Workstation:001?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Workstation:001"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "job000001 (part001)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000001?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Process:Job:000001"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job000002 (part002)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000002?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Process:Job:000002"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job000003 (part003)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Process:Job:000003?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Process:Job:000003"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "trayLoaderStorage001",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage:001"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "trayUnloaderStorage001",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1?options=keyValues",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"entities",
+										"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1"
+									],
+									"query": [
+										{
+											"key": "options",
+											"value": "keyValues"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get trayLoaderStorage1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Storage:trayLoaderStorage1"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
+					"name": "etc",
+					"item": [
+						{
+							"name": "update one object",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"actionType\": \"append\",\r\n    \"entities\": [\r\n        {\r\n            \"id\": \"urn:ngsiv2:i40Recipe:Shift:001\",\r\n            \"type\": \"i40Recipe\",\r\n            \"i40RecipeType\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"Shift\"\r\n            },\r\n            \"start\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"8:00:00\"\r\n            },\r\n            \"end\": {\r\n                \"type\": \"Time\",\r\n                \"value\": \"20:00:00\"\r\n            }\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:1026/v2/op/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1026",
+									"path": [
+										"v2",
+										"op",
+										"update"
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get trayUnloaderStorage1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:1026/v2/entities/urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1?options=keyValues",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "1026",
-							"path": [
-								"v2",
-								"entities",
-								"urn:ngsiv2:i40Asset:Storage:trayUnloaderStorage1"
-							],
-							"query": [
-								{
-									"key": "options",
-									"value": "keyValues"
-								}
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
@@ -511,6 +567,36 @@
 						},
 						"url": {
 							"raw": "localhost:4315",
+							"host": [
+								"localhost"
+							],
+							"port": "4315"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demonstrate plugin support",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"\",\n    \"method\": \"PUT\",\n    \"headers\": [\"Content-Type: application/json\"],\n    \"data\": {},\n    \"transform\": {\n        \"ws\": \"urn:ngsiv2:i40Asset:Workstation:001\",\n        \"ct\": \"good\",\n        \"cc\": 20\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4315",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
