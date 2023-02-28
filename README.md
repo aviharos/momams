@@ -99,7 +99,7 @@ The Grafana dashboards and alerts needs to be set up according to the company's 
 
 ## Try MOMAMS
 
-You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2.
+You can try MOMAMS before deploying it on test data. The steps needed for this can be found below. You can use these steps on GNU/Linux systems or Windows WSL2. There is also a [MOMAMS tutorial video on YouTube](https://youtu.be/T5iZ7flRV9w).
 
 ### Install curl
 
