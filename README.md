@@ -14,6 +14,7 @@
   - [Try MOMAMS](#try-momams)
   - [Environment restrictions](#environment-restrictions)
   - [Known limitations](#known-limitations)
+  - [Miscellaneous](#miscellaneous)
   - [Improvements backlog](#improvements-backlog)
   - [License](#license)
   - [Version history](#version-history)
@@ -177,6 +178,10 @@ If you encounter any trouble using the microservice, query all `i40Asset`, `i40R
 ## Known Limitations
 
 The manufacturing processes must be able to translated into a Job-shop scheduling problem.
+
+## Miscellaneous
+
+Warning: both the OEE microservice and Cygnus generates a lot of logs when the logging level is set to `DEBUG`. If the logs fill the storage of the MOMAMS server, some MOMAMS containers can crash, and as a result, MOMAMS can crash too. To prevent this, it is advised to either set docker to limit log size per container or configure Cygnus and the OEE microservice in the docker-compose file to log only the important events. This is handled in the template docker-compose file.
 
 ## Improvements Backlog
 
