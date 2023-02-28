@@ -32,7 +32,7 @@ services:
       - "CYGNUS_POSTGRESQL_DATABASE=${POSTGRES_DATABASE}" # PostgreSQL database
       - "CYGNUS_POSTGRESQL_ENABLE_CACHE=true" # Switch to enable caching within the PostgreSQL configuration
       - "CYGNUS_POSTGRESQL_SERVICE_PORT=5055" # The port the agent.conf is configured for
-      - "CYGNUS_LOG_LEVEL=DEBUG" # The logging level for Cygnus
+      - "CYGNUS_LOG_LEVEL=WARN" # The logging level for Cygnus
       - "CYGNUS_SERVICE_PORT=5055" # Notification Port that Cygnus listens to for Postgres subscriptions
       - "CYGNUS_API_PORT=5080" # Port that Cygnus listens on for operational reasons
 
@@ -85,7 +85,7 @@ services:
    environment:
      LOG_TO_FILE: "false"
      LOG_TO_STDOUT: "true"
-     LOGGING_LEVEL: "DEBUG"
+     LOGGING_LEVEL: "WARNING"
      ORION_HOST: "orion"
      ORION_PORT: 1026
      SLEEP_TIME: 60
